@@ -1,0 +1,37 @@
+extends ../templates/template
+
+block content
+   .illustration
+   .filter#filter
+      ul.filters-list#filter-list
+
+      button.filters__button Clear
+
+   ul.results#results
+
+   template#filter-template
+      li.filters-list__item
+         span.filters-list__term Frontend
+         //- Add aria-label to button
+         button.filters-list__button
+
+   template#job-template
+      li.results__item
+         article.job
+            img.job__image
+
+            .job__body
+               ul.type
+                  li.type__item
+                  li.type__item.type__item--new New! 
+                  li.type__item.type__item--featured Featured
+               h2.job__title
+               ul.features
+                  //- Time elapsed since offer
+                  li.features__item
+                  //- work day
+                  li.features__item
+                  //- Location
+                  li.features__item
+
+            ul.categories
