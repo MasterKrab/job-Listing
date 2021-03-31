@@ -1,15 +1,16 @@
 filter.addEventListener("click", async e =>{
-   if(e.target.classList.contains("filter__button")){
+   if(e.target.classList.contains("filter__button")) 
       searchTerms = [];
-      printJobs(await getJobs());
-   };
 
    if(e.target.classList.contains("filter-list__button")){
       searchTerms = searchTerms.filter(term => term.termValue !== e.target.dataset.term);
       filteredTerms();
    };
 
-   searchTerms.length === 0 && filter.classList.remove("filter--show");
+   if(searchTerms.length === 0){
+      filter.classList.remove("filter--show");
+      printJobs( await getJobs());
+   };
    printFilterTerms(searchTerms);
 });
 
