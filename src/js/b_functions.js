@@ -48,7 +48,10 @@ const printJobs = jobs =>{
       ? jobTemplate.querySelector(".job").classList.add("job--featured")
       : jobTemplate.querySelector(".job").classList.remove("job--featured");
 
-      jobTemplate.querySelector(".job__image").src = job.logo;
+
+      const image = jobTemplate.querySelector(".job__image");
+      image.src = job.logo;
+      image.alt = `${job.company} logo`
 
       const typeJob = jobTemplate.querySelector(".type");
       typeJob.children[0].textContent = job.company;
