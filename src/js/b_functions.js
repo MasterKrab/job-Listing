@@ -8,12 +8,10 @@ const filteredTerms = async () =>{
       for (let j = 0; j < searchTerms.length; j++){
          validTerm = false;
 
-      if(searchTerms[j].type == "languages" || searchTerms[j].type == "tools"){
-         for(const item of jobs[i][searchTerms[j].type])
-            if(item === searchTerms[j].termValue) validTerm = true;
-         }else{
+         if(searchTerms[j].type == "languages" || searchTerms[j].type == "tools")
+            validTerm = jobs[i][searchTerms[j].type].includes(searchTerms[j].termValue) ? true : false; 
+         else
             validTerm = jobs[i][searchTerms[j].type] == searchTerms[j].termValue ? true : false;
-         };
       };
 
       validTerm && filteredTerms.push(jobs[i]);
