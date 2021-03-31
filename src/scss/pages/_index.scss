@@ -1,0 +1,24 @@
+@use "abstracts/vars/colors" as c;
+
+html{
+   background-color: c.$light-grayish-cyan;
+   font-family: Spartan, sans-serif;
+   font-size: 15px;
+}
+
+.illustration{
+   content: url(../assets/img/bg-header-mobile.svg);
+   width: 100%;
+   background-color: c.$desaturated-dark-cyan;
+
+   @media screen and (min-width: 768px){
+      content: url(../assets/img/bg-header-desktop.svg);
+   }
+}
+
+.main{
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 1.5rem;
+}

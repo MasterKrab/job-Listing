@@ -1,0 +1,134 @@
+@use "abstracts/vars/colors" as c;
+
+.job{
+   box-shadow: 0 0 15px rgba(c.$desaturated-dark-cyan, 0.3);
+   background-color: #fff;
+   margin-top: 1.5rem;
+   margin-bottom: 1.5rem;
+   padding: 2.5rem 1rem 1rem;
+   border-left: 5px solid transparent;
+   position: relative;
+
+   @media screen and (min-width: 768px){
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+   }
+
+   &--featured{
+      border-color: c.$desaturated-dark-cyan;
+   }
+
+   @media screen and (max-width: 768px){
+      &__image{
+         width: 50px;
+         position: absolute;
+         top: 0;
+         transform: translateY(-50%);
+      }
+   }
+
+   &__body{
+      @media screen and (max-width: 768px){
+         border-bottom: 1px solid rgba(c.$dark-grayish-cyan, 0.8);
+         padding-bottom: 1rem;
+         margin-bottom: 1rem;
+      }
+   }
+
+   &__title{
+      font-size: 1.05rem;
+      color: c.$very-dark-grayish-cyan;
+      font-weight: bold;
+
+      @media screen and (min-width: 768px){
+         transition: colors 0.2s;
+
+         &:hover{
+            color: c.$very-dark-grayish-cyan;
+         }
+      }
+   }
+}
+
+.features{
+   display: flex;
+   gap: 1.5rem;
+   color: c.$dark-grayish-cyan;
+   opacity: 0.8;
+   font-size: 0.9rem;
+
+   &__item:nth-child(2),
+   &__item:last-child{
+      list-style: disc;
+   }
+}
+
+.type{
+   display: flex;
+   align-items: center;
+   gap: 5px;
+
+   &__item{
+      color: c.$desaturated-dark-cyan;
+      font-weight: bold;
+
+      &--new,
+      &--featured{
+         background-color: c.$desaturated-dark-cyan;
+         color: c.$light-grayish-cyan;
+         text-transform: uppercase;
+         display: none;
+         padding: 8px 8px 5px;
+         border-radius: 1rem;
+         font-size: 0.8rem;
+      }
+
+      &--new{
+         margin-left: 10px;
+      }
+
+      &--featured{
+         background-color: c.$very-dark-grayish-cyan;
+      }
+
+      &--show{
+         display: block;
+      }
+   }
+}
+
+
+.categories{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+
+   @media screen and (min-width: 768px){
+      margin-left: auto;
+   }
+
+   &__button{
+      background-color: rgba(c.$desaturated-dark-cyan, 0.1);
+      color: c.$desaturated-dark-cyan;
+      font-weight: bold;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+
+      @media screen and (min-width: 768px){
+         transition: background-color 0.2s, colors 0.2s;
+
+         &:hover{
+            color: c.$light-grayish-cyan;
+            background-color: c.$desaturated-dark-cyan;
+         }
+      }
+
+      &:focus{
+         outline: 2px dashed c.$desaturated-dark-cyan;
+         outline-offset: 3px;
+      }
+   }
+}

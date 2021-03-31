@@ -2,18 +2,18 @@ extends ../templates/template
 
 block content
    .illustration
-   .filter#filter
-      ul.filters-list#filter-list
+   main.main
+      .filter#filter
+         ul.filter-list#filter-list
 
-      button.filters__button Clear
+         button.filter__button Clear
 
-   ul.results#results
+      ul.results#results
 
    template#filter-template
-      li.filters-list__item
-         span.filters-list__term Frontend
-         //- Add aria-label to button
-         button.filters-list__button
+      li.filter-list__item
+         span.filter-list__term
+         button.filter-list__button
 
    template#job-template
       li.results__item

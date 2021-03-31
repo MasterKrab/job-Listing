@@ -1,0 +1,102 @@
+@use "abstracts/vars/colors" as c;
+
+.filter__button,
+.filter-list__button{
+   border: none;
+   background: none;
+   cursor: pointer;
+
+   &:focus{
+      outline: 2px dashed c.$very-dark-grayish-cyan;
+      outline-offset: 5px;
+   }
+}
+
+.filter{
+   display: none;
+   background-color: #fff;
+   box-shadow: 0 0 15px rgba(c.$desaturated-dark-cyan, 0.3);
+   padding: 1rem;
+   border-radius: 0.5rem;
+   z-index: 100;
+   position: relative;
+   top: 0;
+   transform: translateY(-50%);
+
+   @media screen and (min-width: 768px){
+      padding: 1.5rem 2.5rem;
+   }
+
+   &--show{
+      display: flex;
+   }
+   
+   &__button{
+      color: c.$dark-grayish-cyan;
+      font-weight: bold;
+      font-size: 0.8rem;
+      width: 15%;
+
+      @media screen and (min-width: 768px){
+         transition: color 0.2s;
+
+         &:hover{
+            color: c.$desaturated-dark-cyan;
+            text-decoration: underline;
+         }
+      }
+
+      &:focus{
+         outline-offset: 2px;
+      }
+   }
+}
+
+.filter-list{
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+   width: 85%;
+   border-radius: 0.5rem;
+
+   &__item{
+      display: flex;
+      background-color: rgba(c.$desaturated-dark-cyan, 0.1);
+      color: c.$desaturated-dark-cyan;
+      font-weight: bold;
+      gap: 5px;
+   }
+
+   &__term{
+      font-weight: bold;
+      padding: 0.5rem;
+   }
+
+   &__button{
+      background-color: c.$desaturated-dark-cyan;
+      width: 35px;
+      border-top-right-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+      position: relative;
+
+      @media screen and (min-width: 768px){
+         transition: background-color 0.2s;
+
+         &:hover{
+            background-color: c.$very-dark-grayish-cyan;
+         }
+      }
+
+      &:focus{
+         background-color: c.$very-dark-grayish-cyan;
+      }
+
+      &::before{
+         content: url(../assets/img/icon-remove.svg);
+         position: absolute;
+         top: 55%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+   }
+}

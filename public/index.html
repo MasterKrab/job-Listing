@@ -23,17 +23,21 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&amp;display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="illustration"></div>
-    <div class="filter" id="filter">
-      <ul class="filters-list" id="filter-list"></ul>
-      <button class="filters__button">Clear</button>
-    </div>
-    <ul class="results" id="results"></ul>
+    <main class="main">
+      <div class="filter" id="filter">
+        <ul class="filter-list" id="filter-list"></ul>
+        <button class="filter__button">Clear</button>
+      </div>
+      <ul class="results" id="results"></ul>
+    </main>
     <template id="filter-template">
-      <li class="filters-list__item"><span class="filters-list__term">Frontend</span>
-        <button class="filters-list__button"></button>
+      <li class="filter-list__item"><span class="filter-list__term"></span>
+        <button class="filter-list__button"></button>
       </li>
     </template>
     <template id="job-template">

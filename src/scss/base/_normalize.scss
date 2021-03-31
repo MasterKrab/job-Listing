@@ -353,6 +353,10 @@
    max-width: 100%;
  }
 
+ body{
+   min-height: 100vh;
+ }
+
  html{
    box-sizing: border-box;
  }
