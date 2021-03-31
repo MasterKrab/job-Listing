@@ -3,3 +3,7 @@ const filterList = document.getElementById("filter-list");
 const fragment = document.createDocumentFragment();
 const result = document.getElementById("results");
 let searchTerms = [];
+let role = "";
+let level = "";
+let languages = [];
+let tools = [];

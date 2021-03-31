@@ -1,21 +1,33 @@
 const filteredTerms = async () =>{
    const jobs = await getJobs();
    const filteredTerms = [];
-   let validTerm;
+   let validRole;
+   let validLevel;
+   let validLanguages;
+   let validTools;
 
-   for (let i = 0; i < jobs.length; i++){
+   for (const job of jobs){
+      validRole = true;
+      validLevel = true;
+      validLanguages = true;
+      validTools = true;
+
+      if(role.length > 0)
+         validRole = role === job.role ? true : false;   
+         
+      if(level.length > 0)
+         validLevel = level === job.level ? true : false;
+         
+      if(languages.length > 0)
+         for (const language of languages)
+            validLanguages = job.languages.includes(language) ? true : false;
+            
+      if(tools.length > 0)
+         for (const tool of tools)
+            validTools = job.tools.includes(tool) ? true : false;
       
-      for (let j = 0; j < searchTerms.length; j++){
-         validTerm = false;
-
-         if(searchTerms[j].type == "languages" || searchTerms[j].type == "tools")
-            validTerm = jobs[i][searchTerms[j].type].includes(searchTerms[j].termValue) ? true : false; 
-         else
-            validTerm = jobs[i][searchTerms[j].type] == searchTerms[j].termValue ? true : false;
-      };
-
-      validTerm && filteredTerms.push(jobs[i]);
-   };
+      if(validRole && validLevel && validTools && validLanguages) filteredTerms.push(job);
+   }; 
 
    printJobs(filteredTerms);
 };
@@ -29,6 +41,7 @@ const printFilterTerms = terms =>{
 
       const filterButton = filterTemplate.querySelector(".filter-list__button");
       filterButton.dataset.term = term.termValue;
+      filterButton.dataset.type = term.type;
       filterButton.ariaLabel = `Delete search term ${term.termValue}`;
 
       const cloneFilterTemplate = document.importNode(filterTemplate, true);
