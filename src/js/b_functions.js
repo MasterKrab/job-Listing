@@ -22,16 +22,16 @@ const filteredTerms = async () =>{
          for (const language of languages){
             validLanguages = job.languages.includes(language);
             if(!validLanguages) break;
-         };
+         }
 
       if(tools.length > 0)
          for (const tool of tools){
             validTools = job.tools.includes(tool);
             if(!validTools) break;
-         };
+         }
       
       if(validRole && validLevel && validTools && validLanguages) filteredTerms.push(job);
-   };
+   }
 
    printJobs(filteredTerms);
 };
@@ -114,9 +114,8 @@ const printJobs = jobs =>{
 const getJobs = async () =>{
    try {
       const request = await fetch(`./data.json`);
-      const data = await request.json();
-      return data;
+      return await request.json();
    } catch (error) {
       console.error(error);
-   };
+   }
 };
