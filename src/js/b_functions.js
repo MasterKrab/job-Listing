@@ -12,22 +12,26 @@ const filteredTerms = async () =>{
       validLanguages = true;
       validTools = true;
 
-      if(role.length > 0)
-         validRole = role === job.role ? true : false;   
-         
-      if(level.length > 0)
-         validLevel = level === job.level ? true : false;
-         
+      if(role.length > 0 && role !== job.role)
+         validRole = false;
+
+      if(level.length > 0 && level !== job.level)
+         validLevel = false;
+
       if(languages.length > 0)
-         for (const language of languages)
-            validLanguages = job.languages.includes(language) ? true : false;
-            
+         for (const language of languages){
+            validLanguages = !!job.languages.includes(language);
+            if(!validLanguages) break;
+         };
+
       if(tools.length > 0)
-         for (const tool of tools)
-            validTools = job.tools.includes(tool) ? true : false;
+         for (const tool of tools){
+            validTools = !!job.tools.includes(tool);
+            if(!validTools) break;
+         };
       
       if(validRole && validLevel && validTools && validLanguages) filteredTerms.push(job);
-   }; 
+   };
 
    printJobs(filteredTerms);
 };
