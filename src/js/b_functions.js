@@ -20,13 +20,13 @@ const filteredTerms = async () =>{
 
       if(languages.length > 0)
          for (const language of languages){
-            validLanguages = !!job.languages.includes(language);
+            validLanguages = job.languages.includes(language);
             if(!validLanguages) break;
          };
 
       if(tools.length > 0)
          for (const tool of tools){
-            validTools = !!job.tools.includes(tool);
+            validTools = job.tools.includes(tool);
             if(!validTools) break;
          };
       
